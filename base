@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            width: 190px;
+            height: 90px;
+        }
+        .login-signup {
+            text-align: right;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .content img {
+            width: 50%;
+            height: auto;
+        }
+        .about-us {
+            width: 45%;
+            padding: 45px;
+        }
+        .contact-us {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #box {
+            overflow: hidden;
+            margin: 85px auto;
+            width: 40%;
+            height: 400px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        
+    </style>    
+</head>
+
+
+<body>
+
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="IMG-20240420-WA0077~2.jpg" alt="Logo">
+        </div>
+        <div class="login-signup">
+            <a href="login.html">Login</a> / <a href="signup.html">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- about us -->
+    <div class="content">
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at odio vestibulum, condimentum elit nec, sollicitudin erat. Nullam id dolor vitae augue pharetra lacinia. Nullam et libero id nunc sodales blandit a nec enim. Ut condimentum velit ut risus feugiat, vel elementum velit aliquet. Nulla convallis rhoncus ultrices. Praesent eget justo eget turpis pulvinar bibendum. Nulla facilisi.</p>
+        </div>
+        <img src="photo.jpg" alt="Photo">
+    </div>
+
+    <!-- upcoming events/workshops -->
+    <!-- code -->
+
+    <!-- user reviews -->
+    <div id="box">
+        <div class="slider">
+            <div class="slide"><img class="image" src="" alt="Slide 1"></div>
+            <div class="slide"><img class="image" src="" alt="Slide 2"></div>
+            <div class="slide"><img class="image" src="" alt="Slide 3"></div>
+        </div>
+    </div>
+
+    <!-- contact us -->
+    <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>For any inquiries or assistance, feel free to contact us:</p>
+        <p>Email: info@example.com</p>
+        <p>Phone: +1 123-456-7890</p>
+    </div>
+
+        <script>
+
+    //  slider
+             let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const intervalTime = 5000; 
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const transformValue = -currentIndex * 100 + '%';
+        document.querySelector('.slider').style.transform = 'translateX(' + transformValue + ')';
+        updateDots();
+    }
+
+    setInterval(nextSlide, intervalTime);
+
+    // Smoothly transition from last to first without traversing
+    const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
+    document.querySelector('.slider').insertAdjacentElement('afterbegin', lastSlideClone);
+
+    // Ensure correct initial position
+    currentIndex = 1;
+    updateSlider();
+        </script>
+    
+</body>
+</html>
