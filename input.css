@@ -1,0 +1,63 @@
+#navbar {
+    position: relative;
+    background-color: #3b5966;
+}
+
+#navbar img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: wheat;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.content img {
+    width: 50%;
+    height: auto;
+}
+.about-us {
+    width: 45%;
+    padding: 45px;
+}
+.contact-us {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+#box {
+    overflow: hidden;
+    margin: 85px auto;
+    width: 40%;
+    height: 400px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
